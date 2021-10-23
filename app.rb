@@ -28,7 +28,7 @@ class App < Sinatra::Application
   def send_email(to:, subject:, body:)
     Mail.deliver do
       to to
-      from 'knight.ni@gmail.com'
+      from ENV['FROM_ADDRESS']
       subject subject
       body body
     end
