@@ -19,20 +19,18 @@ end
 
 class App < Sinatra::Application
   post '/emails' do
-    p 'params'
-    p params
-    p 'ENV'
-    p ENV['GMAIL_USERNAME']
-    send_email
+    send_email(to: params['to'], subject: params['subject'], body: params['body'])
     halt 200
+  rescue StandardError
+    halt 500
   end
 
-  def send_email
+  def send_email(to:, subject:, body:)
     Mail.deliver do
-      to 'tamas@hey.com'
+      to to
       from 'knight.ni@gmail.com'
-      subject 'testing sendmail'
-      body 'testing sendmail'
+      subject subject
+      body body
     end
 
   end
