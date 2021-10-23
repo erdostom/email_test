@@ -1,6 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.7.6)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mini_mime (1.1.2)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -30,6 +34,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
+  mail
   puma
   rack-contrib
   sinatra
